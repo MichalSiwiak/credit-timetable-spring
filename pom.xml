@@ -92,7 +92,7 @@
   </dependencies>
   <!-- Add support for Maven WAR Plugin -->
   <build>
-    <finalName>credit-timetable-spring</finalName>
+    <finalName>credit</finalName>
     <pluginManagement>
       <plugins>
         <plugin>
