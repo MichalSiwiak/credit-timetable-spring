@@ -1,6 +1,7 @@
 package pl.javacoding.model;
 
 import org.springframework.stereotype.Component;
+import pl.javacoding.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +40,9 @@ public class Credit {
             debt = debt - (payment - interest);
             double capitalPart = payment - interest;
 
-            interests.add(roundDouble2precision(interest, 2));
-            capitalParts.add(roundDouble2precision(capitalPart, 2));
-            debtBalances.add(roundDouble2precision(debt, 2));
+            interests.add(new Utils().roundDouble2precision(interest, 2));
+            capitalParts.add(new Utils().roundDouble2precision(capitalPart, 2));
+            debtBalances.add(new Utils().roundDouble2precision(debt, 2));
             periods.add(i);
         }
 
@@ -54,16 +55,6 @@ public class Credit {
     private double calculatePayment() {
         return amount * (((rateOfInterest / (100) / 12) * Math.pow((1 + (rateOfInterest / (100) / 12)), period))
                 / (Math.pow((1 + (rateOfInterest / (100) / 12)), period) - 1));
-    }
-
-    private double roundDouble2precision(double value, int places) {
-
-        if (places < 0)
-            throw new IllegalArgumentException();
-        long factor = (long) Math.pow(10, places);
-        value = value * factor;
-        long tmp = Math.round(value);
-        return (double) tmp / factor;
     }
 
     public int getPeriod() {
@@ -91,7 +82,7 @@ public class Credit {
     }
 
     public double getPayment() {
-        return roundDouble2precision(payment, 2);
+        return new Utils().roundDouble2precision(payment, 2);
     }
 
     public List<Double> getInterests() {

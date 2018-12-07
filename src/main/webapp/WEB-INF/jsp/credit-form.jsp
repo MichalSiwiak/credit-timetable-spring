@@ -82,32 +82,42 @@
 </div>
 <div class="row my-3">
     <div class="container w-50">
-        <div class="row">
-            <form:form modelAttribute="credit" method="POST">
-                <p>Amount</p>
-                <form:input path="amount" type="number" required="true" class="form-control"/>
-                <p>Period</p>
-                <form:input path="period" type="number" required="true" class="form-control"/>
-                <p>Stopa procentowa:</p>
-                <form:input id="rateOfInterest" path="rateOfInterest" type="number" min="0.01" max="20" step="0.01"
-                            required="true" class="form-control"/>
-                <br/> <input type="submit" class="btn btn-primary" value="Calculate"/>
-            </form:form>
-        </div>
+        <form:form modelAttribute="credit" method="POST" class="form-inline w-100">
+            <div class="form-group w-25">
+                <p class="m-0 mb-1 w-100 text-center"> Amount </p>
+                <form:input path="amount" type="number" min="1000" value="100000" required="true"
+                            class="form-control mx-2 w-100 text-center text-dark"/>
+            </div>
+            <div class=" form-group w-25">
+                <p class="m-0 mb-1 w-100 text-center"> Period </p>
+                <form:input path="period" type="number" min="12" max="420" value="120" required="true"
+                            class="form-control mx-2 w-100 text-center"/>
+            </div>
+            <div class="form-group w-25">
+                <p class="m-0 mb-1 w-100 text-center"> Interest Rate </p>
+                <form:input id="rateOfInterest" path="rateOfInterest" type="number" value="3.5" min="1" max="20"
+                            step="0.01"
+                            required="true" class="form-control mx-2 w-100 text-center"/>
+            </div>
+            <div class="form-group w-25">
+                <p class="m-0 mb-1 w-100 text-center text-light">Calculate</p>
+                <button type="submit" class="btn btn-primary w-100 rounded">Calculate</button>
+            </div>
+        </form:form>
     </div>
 </div>
 <div class="row my-4">
     <div class="container p-0">
-        <h1>Oferty</h1>
-        <table class="table table-striped table-hover">
+        <h3 class="text-center">Select offer</h3>
+        <table id="table" class="table table-striped table-hover">
             <tbody class=" text-center">
             <tr>
-                <th>title</th>
-                <th>bankName</th>
-                <th>margin</th>
-                <th>interest</th>
-                <th>commission</th>
-                <th>rrso</th>
+                <th>Offer name</th>
+                <th>Bank</th>
+                <th>Margin</th>
+                <th>Interest</th>
+                <th>Commission</th>
+                <th>RRSO</th>
             </tr>
             <c:forEach var="offer" items="${offers}">
                 <tr style="cursor: pointer;">
@@ -121,6 +131,14 @@
             </c:forEach>
             </tbody>
         </table>
+        <script>
+            var table = document.getElementById('table');
+            for (var i = 1; i < table.rows.length; i++) {
+                table.rows[i].onclick = function () {
+                    document.getElementById("rateOfInterest").value = this.cells[3].innerHTML;
+                };
+            }
+        </script>
     </div>
 </div>
 <footer class="py-5 bg-dark text-muted">

@@ -85,9 +85,13 @@
 <div class="row my-4">
     <div class="container p-0">
         <div class="row">
-            <div class="col-md-12 text-right">
+            <div class="col-md-12">
                 <div class="btn-group">
-                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Download</button>
+                    <button class="btn btn-primary" formaction="${pageContext.request.contextPath}/credit-demo">New
+                        calculation
+                    </button>
+                    <button class="btn btn-primary dropdown-toggle pull-right" data-toggle="dropdown"> Download
+                    </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/downloadpdf">PDF</a>
                         <div class="dropdown-divider"></div>
@@ -107,7 +111,7 @@
                 <th>balance of debt</th>
             </tr>
             <tr>
-                <td>0</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

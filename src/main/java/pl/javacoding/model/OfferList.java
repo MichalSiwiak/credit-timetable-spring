@@ -4,7 +4,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import pl.javacoding.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +16,7 @@ import java.util.List;
 public class OfferList {
 
     List<Offer> offers;
+
 
     public List<Offer> getOffers() {
         return offers;
@@ -37,15 +41,25 @@ public class OfferList {
                 Offer offer = new Offer();
 
                 offer.setBankName(bank);
-                offer.setTitle(title);
-                offer.setMargin(margin);
-                offer.setInterest(interest);
-                offer.setCommission(commission);
-                offer.setRrso(rrso[4].substring(6, 10).replace(",", "."));
+
+                String rrsoValue = rrso[4].substring(6, 10).replace(",", ".");
+
+                try {
+                    offer.setTitle(title);
+                    offer.setMargin(String.valueOf(new Utils().roundDouble2precision(Double.parseDouble(margin), 2)));
+                    offer.setInterest(String.valueOf(new Utils().roundDouble2precision(Double.parseDouble(interest), 2)));
+                    offer.setCommission(String.valueOf(new Utils().roundDouble2precision(Double.parseDouble(commission), 2)));
+                    offer.setRrso(String.valueOf(new Utils().roundDouble2precision(Double.parseDouble(rrsoValue), 2)));
+                } catch (NumberFormatException e) {
+                    offer.setTitle(title);
+                    offer.setMargin(margin);
+                    offer.setInterest(interest);
+                    offer.setCommission(commission);
+                    offer.setRrso(rrsoValue);
+                }
 
                 offers.add(offer);
             }
-
         } catch (Exception e) {
 
         }

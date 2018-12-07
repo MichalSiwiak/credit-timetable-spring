@@ -26,6 +26,18 @@
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
+
+    <style>
+        table tr:not(:first-child) {
+            cursor: pointer;
+            transition: all .25s ease-in-out;
+        }
+
+        table tr:not(:first-child):hover {
+            background-color: #ddd;
+        }
+    </style>
+
 </head>
 <body class="bg-light text-dark" style="">
 <div class="collapse" id="navbarHeader">
@@ -80,7 +92,6 @@
         </div>
     </div>
 </div>
-
 <div class="row my-4">
     <div class="container p-0">
         <h1>Desc</h1>

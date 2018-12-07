@@ -7,6 +7,7 @@ import com.lowagie.text.pdf.PdfWriter;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import pl.javacoding.model.Credit;
 
@@ -110,5 +111,15 @@ public class Utils {
             workbook.close();
         } catch (IOException e) {
         }
+    }
+
+    public double roundDouble2precision(double value, int places) {
+
+        if (places < 0)
+            throw new IllegalArgumentException();
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 }
