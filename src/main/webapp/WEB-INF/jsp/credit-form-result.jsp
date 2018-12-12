@@ -6,26 +6,32 @@
 <html>
 
 <head>
-    <!-- PAGE settings -->
     <meta charset="utf-8">
-    <title>Album</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="to be completed...">
-    <meta name="keywords" content="to be completed...">
+    <title>coffecode.org</title>
+    <meta name="description"
+          content="Free open source projects present different java solutions using spring, hibernate and other popular frameworks.">
+    <meta name="keywords"
+          content="java, spring, hibernate, apache, tomcat, coding, programmer, linux, google cloud platform, open source, bootstrap, mysql, java ideas">
     <!-- CSS dependencies -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/now-ui-kit.css">
-    <link rel="icon" href="to be completed...">
-    <link href="${pageContext.request.contextPath}/resources/css/home.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.standalone.min.css">
+    <link rel="stylesheet" href="resources/css/now-ui-kit.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/home.css" type="text/css">
+    <link rel="icon" href="resources/img/favicon.png">
     <!-- PAGE scripts -->
-    <script src="//code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>
-    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
 </head>
 <body class="bg-light text-dark" style="">
 <div class="collapse" id="navbarHeader">
@@ -53,14 +59,17 @@
 </div>
 <div class="navbar sticky-top navbar-dark bg-info">
     <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center"><i class="icon-home"></i><strong>Home</strong> </a>
+        <a href="https://www.javacoding.pl/" class="navbar-brand d-flex align-items-center"><i
+                class="icon-home"></i><strong>Home</strong> </a>
         <a href="#" class="navbar-brand d-flex align-items-center"><i class="icon-github-circled"></i><strong>Source
             Code</strong> </a>
-        <a href="#" class="navbar-brand d-flex align-items-center"><i
+        <a href="${pageContext.request.contextPath}" class="navbar-brand d-flex align-items-center"><i
                 class="icon-doc-text"></i><strong>Description</strong> </a>
-        <a href="#" class="navbar-brand d-flex align-items-center"><i class="icon-vcard"></i><strong>Resume</strong>
+        <a href="/resume" class="navbar-brand d-flex align-items-center"><i
+                class="icon-vcard"></i><strong>Resume</strong>
         </a>
-        <a href="#" class="navbar-brand d-flex align-items-center"><i class="icon-mail-alt"></i><strong>Contact</strong>
+        <a href="/contact" class="navbar-brand d-flex align-items-center"><i
+                class="icon-mail-alt"></i><strong>Contact</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"><span
                 class="navbar-toggler-icon"></span></button>
@@ -88,7 +97,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6">
-                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/credit-demo" role="button">New
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/demo" role="button">New
                             calculation</a>
                     </div>
                     <div class="col-md-6 text-right">

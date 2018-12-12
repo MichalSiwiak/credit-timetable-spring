@@ -26,14 +26,14 @@ public class CreditController {
     @Autowired
     Credit credit; // warning - can be null !!!
 
-    @PostMapping("/credit-demo")
+    @PostMapping("/demo")
     public String calculate(@ModelAttribute("credit") Credit credit, Model theModel) {
         this.credit = new Credit(credit.getPeriod(), credit.getAmount(), credit.getRateOfInterest());
         theModel.addAttribute("newCredit", this.credit);
         return "credit-form-result";
     }
 
-    @GetMapping("/credit-demo")
+    @GetMapping("/demo")
     public String getNewTopic(Model theModel) {
         List<Offer> offers = offerList.getOffers();
         theModel.addAttribute("credit", credit);
