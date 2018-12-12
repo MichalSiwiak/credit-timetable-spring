@@ -103,22 +103,6 @@
                 </div>
             </div>
         </div>
-        <%-- <div class="row">
-             <div class="col-md-12">
-                 <div class="btn-group">
-                     <button class="btn btn-primary" formaction="${pageContext.request.contextPath}/credit-demo">New
-                         calculation
-                     </button>
-                     <button class="btn btn-primary dropdown-toggle pull-right" data-toggle="dropdown"> Download
-                     </button>
-                     <div class="dropdown-menu">
-                         <a class="dropdown-item" href="${pageContext.request.contextPath}/downloadpdf">PDF</a>
-                         <div class="dropdown-divider"></div>
-                         <a class="dropdown-item" href="${pageContext.request.contextPath}/downloadxls">XLS</a>
-                     </div>
-                 </div>
-             </div>
-         </div>--%>
         <h1 class="text-center">Timetable</h1>
         <table class="table table-striped table-hover">
             <tbody data-link="row" class="rowlink text-center">
