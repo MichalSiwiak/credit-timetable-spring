@@ -1,5 +1,9 @@
-package pl.javacoding.controller;
+package org.coffecode.controller;
 
+import org.coffecode.model.Credit;
+import org.coffecode.model.Offer;
+import org.coffecode.model.OfferList;
+import org.coffecode.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -8,10 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.javacoding.model.Credit;
-import pl.javacoding.model.Offer;
-import pl.javacoding.model.OfferList;
-import pl.javacoding.utils.Utils;
 
 import java.io.*;
 import java.util.List;

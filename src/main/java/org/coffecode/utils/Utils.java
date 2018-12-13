@@ -1,4 +1,4 @@
-package pl.javacoding.utils;
+package org.coffecode.utils;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfPCell;
@@ -7,9 +7,8 @@ import com.lowagie.text.pdf.PdfWriter;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.springframework.context.annotation.Scope;
+import org.coffecode.model.Credit;
 import org.springframework.stereotype.Component;
-import pl.javacoding.model.Credit;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package pl.javacoding.model;
+package org.coffecode.model;
 
 public class Offer {
 

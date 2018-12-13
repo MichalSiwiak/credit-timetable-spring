@@ -10,7 +10,7 @@
 
     <mvc:resources mapping="/resources/**" location="resources/"/>
     <mvc:annotation-driven/>
-    <context:component-scan base-package="pl.javacoding"/>
+    <context:component-scan base-package="org.coffecode"/>
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
