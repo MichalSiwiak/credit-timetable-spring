@@ -1,13 +1,13 @@
-package org.coffecode.utils;
+package net.coffeecoding.utils;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+import net.coffeecoding.model.Credit;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.coffecode.model.Credit;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -27,27 +27,27 @@ public class Utils {
 
         document.open();
 
-        Paragraph title = new Paragraph("Harmonogram spłaty kredytu");
+        Paragraph title = new Paragraph("Loan repayment schedule");
         title.setAlignment(Element.ALIGN_CENTER);
         PdfPTable table = new PdfPTable(5);
 
-        PdfPCell period = new PdfPCell(new Phrase("Numer Raty"));
+        PdfPCell period = new PdfPCell(new Phrase("Installment number"));
         period.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(period);
 
-        PdfPCell interest = new PdfPCell(new Phrase("Odsetki"));
+        PdfPCell interest = new PdfPCell(new Phrase("Interest"));
         interest.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(interest);
 
-        PdfPCell capitalPart = new PdfPCell(new Phrase("Kapital"));
+        PdfPCell capitalPart = new PdfPCell(new Phrase("Capital part"));
         capitalPart.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(capitalPart);
 
-        PdfPCell pmt = new PdfPCell(new Phrase("Rata"));
+        PdfPCell pmt = new PdfPCell(new Phrase("Installment value"));
         pmt.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(pmt);
 
-        PdfPCell debtBalance = new PdfPCell(new Phrase("Saldo"));
+        PdfPCell debtBalance = new PdfPCell(new Phrase("Debt balance"));
         debtBalance.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(debtBalance);
         table.setHeaderRows(1);
@@ -86,11 +86,11 @@ public class Utils {
         HSSFSheet sheet = workbook.createSheet();
 
         HSSFRow headline = sheet.createRow(0);
-        headline.createCell(0).setCellValue("Numer Raty");
-        headline.createCell(1).setCellValue("Odsetki");
-        headline.createCell(2).setCellValue("Kapitał");
-        headline.createCell(3).setCellValue("Rata");
-        headline.createCell(4).setCellValue("Saldo zadłużenia");
+        headline.createCell(0).setCellValue("Installment number");
+        headline.createCell(1).setCellValue("Interest");
+        headline.createCell(2).setCellValue("Capital part");
+        headline.createCell(3).setCellValue("Installment value");
+        headline.createCell(4).setCellValue("Debt balance");
 
         for (int i = 0; i < credit.getPeriod(); i++) {
             HSSFRow row = sheet.createRow(i + 1);

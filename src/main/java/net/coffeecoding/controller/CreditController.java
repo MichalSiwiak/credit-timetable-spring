@@ -1,9 +1,9 @@
-package org.coffecode.controller;
+package net.coffeecoding.controller;
 
-import org.coffecode.model.Credit;
-import org.coffecode.model.Offer;
-import org.coffecode.model.OfferList;
-import org.coffecode.utils.Utils;
+import net.coffeecoding.model.Credit;
+import net.coffeecoding.model.Offer;
+import net.coffeecoding.model.OfferList;
+import net.coffeecoding.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -24,7 +24,7 @@ public class CreditController {
     @Autowired
     OfferList offerList;
     @Autowired
-    Credit credit; // warning - can be null !!!
+    Credit credit;
 
     @PostMapping("/demo")
     public String calculate(@ModelAttribute("credit") Credit credit, Model theModel) {
@@ -34,7 +34,7 @@ public class CreditController {
     }
 
     @GetMapping("/demo")
-    public String getNewTopic(Model theModel) {
+    public String getMainPage(Model theModel) {
         List<Offer> offers = offerList.getOffers();
         theModel.addAttribute("credit", credit);
         theModel.addAttribute("offers", offers);
@@ -44,7 +44,7 @@ public class CreditController {
     @GetMapping("/downloadpdf")
     public ResponseEntity<InputStreamResource> downloadPDF() {
         utils.exportCreditTimetableToPdf(credit);
-        File file = new File("C:\\Users\\msiwiak\\Desktop\\timetable.pdf");
+        File file = new File("C:\\Users\\msiwiak\\Desktop\\timetable of selected offer.pdf");
         InputStreamResource resource = null;
         try {
             resource = new InputStreamResource(new FileInputStream(file));
@@ -60,7 +60,7 @@ public class CreditController {
     @GetMapping("/downloadxls")
     public ResponseEntity<InputStreamResource> downloadXls() {
         utils.exportCreditTimetableToXls(credit);
-        File file = new File("C:\\Users\\msiwiak\\Desktop\\poi-generated-file.xls");
+        File file = new File("C:\\Users\\msiwiak\\Desktop\\timetable of selected offer.xls");
         InputStreamResource resource = null;
         try {
             resource = new InputStreamResource(new FileInputStream(file));

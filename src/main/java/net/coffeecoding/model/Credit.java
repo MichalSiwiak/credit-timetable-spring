@@ -1,7 +1,7 @@
-package org.coffecode.model;
+package net.coffeecoding.model;
 
 import org.springframework.stereotype.Component;
-import org.coffecode.utils.Utils;
+import net.coffeecoding.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
