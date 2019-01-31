@@ -20,7 +20,7 @@ public class Utils {
         Document document = new Document();
 
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("C:\\Users\\msiwiak\\Desktop\\timetable.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("/tmp/timetable_of_selected_offer.pdf"));
         } catch (DocumentException e) {
         } catch (FileNotFoundException e) {
         }
@@ -104,7 +104,7 @@ public class Utils {
         FileOutputStream fileOut;
 
         try {
-            fileOut = new FileOutputStream("C:\\Users\\msiwiak\\Desktop\\poi-generated-file.xls");
+            fileOut = new FileOutputStream("/tmp/timetable_of_selected_offer.xls");
             workbook.write(fileOut);
             fileOut.close();
             workbook.close();

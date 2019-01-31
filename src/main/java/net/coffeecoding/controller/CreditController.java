@@ -44,7 +44,7 @@ public class CreditController {
     @GetMapping("/downloadpdf")
     public ResponseEntity<InputStreamResource> downloadPDF() {
         utils.exportCreditTimetableToPdf(credit);
-        File file = new File("C:\\Users\\msiwiak\\Desktop\\timetable of selected offer.pdf");
+        File file = new File("/tmp/timetable_of_selected_offer.pdf");
         InputStreamResource resource = null;
         try {
             resource = new InputStreamResource(new FileInputStream(file));
@@ -60,7 +60,7 @@ public class CreditController {
     @GetMapping("/downloadxls")
     public ResponseEntity<InputStreamResource> downloadXls() {
         utils.exportCreditTimetableToXls(credit);
-        File file = new File("C:\\Users\\msiwiak\\Desktop\\timetable of selected offer.xls");
+        File file = new File("/tmp/timetable_of_selected_offer.xls");
         InputStreamResource resource = null;
         try {
             resource = new InputStreamResource(new FileInputStream(file));
@@ -71,5 +71,10 @@ public class CreditController {
                         "attachment;filename=" + file.getName())
                 .contentType(MediaType.valueOf("application/vnd.ms-excel")).contentLength(file.length())
                 .body(resource);
+    }
+
+    @GetMapping("/error")
+    public String showErrorPage() {
+        return "error-page";
     }
 }
