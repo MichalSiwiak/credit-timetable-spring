@@ -10,17 +10,18 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpSession;
 import java.io.*;
 
 @Component
 public class Utils {
 
-    public void exportCreditTimetableToPdf(Credit credit) {
+    public void exportCreditTimetableToPdf(Credit credit, HttpSession httpSession) {
 
         Document document = new Document();
 
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("/tmp/timetable_of_selected_offer.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("/tmp/" + httpSession.getId() + ".pdf"));
         } catch (DocumentException e) {
         } catch (FileNotFoundException e) {
         }
@@ -80,7 +81,7 @@ public class Utils {
         document.close();
     }
 
-    public void exportCreditTimetableToXls(Credit credit) {
+    public void exportCreditTimetableToXls(Credit credit, HttpSession httpSession) {
 
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet();
@@ -104,7 +105,7 @@ public class Utils {
         FileOutputStream fileOut;
 
         try {
-            fileOut = new FileOutputStream("/tmp/timetable_of_selected_offer.xls");
+            fileOut = new FileOutputStream("/tmp/" + httpSession.getId() + ".xls");
             workbook.write(fileOut);
             fileOut.close();
             workbook.close();
