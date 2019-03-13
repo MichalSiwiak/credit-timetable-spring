@@ -105,13 +105,11 @@
         <div class="text-center py-4 bg-secondary"
              style="	background-image: linear-gradient(to left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row">
                     <div class="col-md-0">
                         <h1 class="text-left text-primary">Credit Timetable Generator</h1>
-                        <p class="lead text-left">The application collects offers of housing loans from the other site
-                            using the jsoup library. The user has the option of selecting a home loan and generating a loan
-                            schedule using the installment plan. Credit installment is calculated based on the value entered by the
-                            user. The user has the option to export the loan repayment schedule to an Excel or PDF file.</p>
+                        <p class="lead text-left">Searching for loan offers using web crawler and generating credit
+                            schedules to various files.</p>
                     </div>
                 </div>
             </div>
